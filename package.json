@@ -1,0 +1,56 @@
+{
+  "name": "react-mobile-app",
+  "version": "1.0.0",
+  "description": "Tool which help to create clear mobile architecture in react.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/master-7/react-mobile-app.git"
+  },
+  "keywords": [
+    "React",
+    "mobile"
+  ],
+  "author": "NickMasters",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/master-7/react-mobile-app/issues"
+  },
+  "homepage": "https://github.com/master-7/react-mobile-app#readme",
+  "dependencies": {
+    "mobile-detect": "^1.4.3",
+    "react": "^16.5.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.6.1",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-flowtype": "^2.50.3",
+    "eslint-plugin-jest": "^21.24.1",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-react": "^7.11.1",
+    "flow-bin": "^0.82.0",
+    "flow-typed": "^2.5.1",
+    "lint-staged": "^7.3.0",
+    "prettier": "^1.14.3"
+  },
+  "lint-staged": {
+    "*.js": [
+      "npx eslint",
+      "npx flow focus-check",
+      "git add"
+    ],
+    "*.ts": [
+      "npx tslint -c tslint.json",
+      "git add"
+    ],
+    "*.{json}": [
+      "npx eslint",
+      "git add"
+    ]
+  }
+}

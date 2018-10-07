@@ -1,0 +1,4 @@
+[core]
+ignoreCase = false
+eol = lf
+autocrlf = input
