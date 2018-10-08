@@ -2,29 +2,7 @@
   "compilerOptions": {
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": false,
-    "baseUrl": "./",
-    "paths": {
-      "components/*": [
-        "src/components/*"
-      ],
-      "modules/*": [
-        "src/modules/*"
-      ],
-      "Baccarat": [
-        "src/modules/Baccarat/*"
-      ],
-      "services/*": [
-        "src/services/*"
-      ],
-      "context/*": [
-        "src/context/*"
-      ],
-      "infrastructure/*": [
-        "src/infrastructure/*"
-      ],
-      "lib/*": ["src/lib"],
-      "i18n/*": ["i18n/*"]
-    }
+    "baseUrl": "./"
   },
   "exclude": [
     "node_modules",
