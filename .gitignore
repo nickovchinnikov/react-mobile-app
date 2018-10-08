@@ -15,6 +15,7 @@
 /build
 /public
 /dist
+/lib
 /stories_build/*
 /storybook-static/*
 /.storybook/*
