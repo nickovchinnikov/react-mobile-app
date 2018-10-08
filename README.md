@@ -136,9 +136,9 @@ import React from 'react'
 import { configure } from '@storybook/react'
 import { isMobile, isTablet } from 'react-mobile-app'
 
-const desktopContext = () => require.context('../../src', true, /\.((?!mobile)|(?!tablet))\..*\.story\.js$/)
-const mobileContext = () => require.context('../../src', true, /\.mobile\.story\.js$/)
-const tabletContext = () => require.context('../../src', true, /\.tablet\.story\.js$/)
+const desktopContext = () => require.context('../src', true, /\.((?!mobile)|(?!tablet))\..*\.story\.js$/)
+const mobileContext = () => require.context('../src', true, /\.mobile\.story\.js$/)
+const tabletContext = () => require.context('../src', true, /\.tablet\.story\.js$/)
 
 const calculateContext = () => {
   if (isMobile()) {
