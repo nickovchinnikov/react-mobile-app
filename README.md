@@ -30,9 +30,7 @@ export const Component = mobileDetector([
 
 So this's it, ground zero.
 
-Library based on the `mobile-detect` and `react`
-
-## How I can use it, extend version
+## How I can use it, extended version
 
 ```javascript
 mobileDetector([
@@ -57,6 +55,42 @@ For mobile presented two different orientaion (landscape / portrait) but for the
 
 4. `mobileDetector([ComponentDesktop, [ComponentMobilePortrait, ComponentMobileLandscape], [ComponentTabletPortrait]])`
 Full version - mobile / tablet presented two different orientaion (landscape / portrait)
+
+### If you wanna to low - lvl API
+
+You can find the next helpfull methods inside
+
+Library based on the [mobile-detect](https://github.com/hgoebl/mobile-detect.js) so everything you can find inside `mobileDetect` method
+
+```javascript
+import MobileDetect from 'mobile-detect'
+
+const isMobile = (): boolean => Boolean
+
+const isTablet = (): boolean => Boolean
+
+const matchMediaQuery = (): MediaQueryList => window.matchMedia('(orientation: landscape)')
+
+const isLandscape = (): boolean => matchMediaQuery().matches
+
+const mobileDetect: MobileDetect = new MobileDetect(navigator.userAgent)
+
+```
+
+You can import anything what you need
+
+```javascript
+
+import {
+	mobileDetector,
+	isMobile,
+	isTablet,
+	matchMediaQuery,
+	isLandscape,
+	mobileDetect
+} from 'react-mobile-app'
+
+```
 
 ### With redux
 
@@ -129,3 +163,5 @@ configure(loadStories, module)
 ```
 
 Than you can easy add to your filesystem mobile and tablet specific stories
+
+> May the force be with you!
