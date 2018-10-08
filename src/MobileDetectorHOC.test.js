@@ -8,24 +8,26 @@ import { MobileDetectorHOC } from './MobileDetectorHOC'
 const mockPortraitComponent = jest.fn(() => 1)
 const mockLandscapeComponent = jest.fn(() => 2)
 
-describe('rendering', () => {
+const testRender = () => <MobileDetectorHOC components={[mockPortraitComponent, mockLandscapeComponent]} />
+
+describe('MobileDetectorHOC testing', () => {
   it('mockPortraitComponent works', () => {
     dependency.isLandscape = jest.fn(() => false)
-    const wrapper = shallow(<MobileDetectorHOC components={[mockPortraitComponent, mockLandscapeComponent]} />)
+    const wrapper = shallow(testRender())
 
     expect(wrapper.type()()).toBe(1)
   })
 
   it('mockLandscapeComponent works', () => {
     dependency.isLandscape = jest.fn(() => true)
-    const wrapper = shallow(<MobileDetectorHOC components={[mockPortraitComponent, mockLandscapeComponent]} />)
+    const wrapper = shallow(testRender())
 
     expect(wrapper.type()()).toBe(2)
   })
 
   it('orientation state works as well', () => {
     dependency.isLandscape = jest.fn(() => false)
-    const wrapper = shallow(<MobileDetectorHOC components={[mockPortraitComponent, mockLandscapeComponent]} />)
+    const wrapper = shallow(testRender())
 
     expect(wrapper.type()()).toBe(1)
 
@@ -43,7 +45,7 @@ describe('rendering', () => {
       removeListener
     })
 
-    const wrapper = shallow(<MobileDetectorHOC components={[mockPortraitComponent, mockLandscapeComponent]} />)
+    const wrapper = shallow(testRender())
 
     expect(addListener.mock.calls.length).toBe(1)
 

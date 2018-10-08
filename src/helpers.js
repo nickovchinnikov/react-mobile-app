@@ -43,15 +43,15 @@ export const calculateMobileComponentByOrientation = (
 export const calculateTabletComponentByOrientation = (
   desktop: reactComponentType,
   [mobilePortrait, mobileLandscape]: reactComponentsArrayType = [],
-  [tablePortrait, tableLandscape]: reactComponentsArrayType = []
+  [tabletPortrait, tabletLandscape]: reactComponentsArrayType = []
 ): reactComponentType => {
-  if (!tablePortrait) {
+  if (!tabletPortrait) {
     return calculateMobileComponentByOrientation(desktop, [mobilePortrait, mobileLandscape])
   }
 
-  if (!tableLandscape) {
-    return tablePortrait
+  if (!tabletLandscape) {
+    return tabletPortrait
   }
 
-  return hocWrapper([tablePortrait, tableLandscape])
+  return hocWrapper([tabletPortrait, tabletLandscape])
 }
