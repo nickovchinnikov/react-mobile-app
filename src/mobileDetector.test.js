@@ -1,5 +1,3 @@
-import { shallow } from 'enzyme'
-
 import * as dependency from './helpers'
 import { mobileDetector } from './mobileDetector'
 
