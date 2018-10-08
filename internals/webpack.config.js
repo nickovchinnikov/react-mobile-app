@@ -2,7 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const nodeExternals = require('webpack-node-externals')
 
-const dist = 'dist'
+const dist = 'lib'
 const distRegexp = new RegExp(`/${dist}/`)
 
 const webpackConfig = {
@@ -10,9 +10,7 @@ const webpackConfig = {
   externals: [nodeExternals()],
   output: {
     path: __dirname + `/../${dist}`,
-    filename: '[name].[contenthash].js',
-    chunkFilename: '[name].[contenthash].bundle.js',
-    jsonpFunction: 'webpackJsonp' + Date.now()
+    filename: 'index.js'
   },
   module: {
     rules: [

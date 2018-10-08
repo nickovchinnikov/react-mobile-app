@@ -4,7 +4,7 @@
   "description": "Tool which help to create clear mobile architecture in react.js",
   "main": "index.js",
   "files": [
-    "dist/*"
+    "lib/*"
   ],
   "scripts": {
     "build": "webpack --config ./internals/webpack.config.js --progress --mode production",
@@ -20,6 +20,7 @@
     "mobile"
   ],
   "author": "NickMasters",
+  "email": "master-7@inbox.ru",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/master-7/react-mobile-app/issues"
