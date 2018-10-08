@@ -1,3 +1,3 @@
-import { mobileDetector } from './mobileDetect'
+import { mobileDetector } from './mobileDetector'
 
 export default mobileDetector

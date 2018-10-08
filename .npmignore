@@ -1,0 +1,7 @@
+.vscode
+flow-typed
+internals
+src
+.*
+*.config.js
+*.json
