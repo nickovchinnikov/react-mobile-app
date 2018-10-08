@@ -1,4 +1,4 @@
-import { mobileDetector } from './dist'
+import { mobileDetector } from './lib'
 
-export * from './dist'
+export * from './lib'
 export default mobileDetector
