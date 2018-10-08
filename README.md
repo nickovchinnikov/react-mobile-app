@@ -22,9 +22,9 @@ import { ComponentTabletPortrait } from './ComponentTablet.portrait'
 import { ComponentTabletLandscape } from './ComponentTablet.landscape'
 
 export const Component = mobileDetector([
-	ComponentDesktop,
-	[ComponentMobilePortrait, ComponentMobileLandscape],
-	[ComponentTabletPortrait, ComponentTabletLandscape]
+  ComponentDesktop,
+  [ComponentMobilePortrait, ComponentMobileLandscape],
+  [ComponentTabletPortrait, ComponentTabletLandscape]
 ])
 ```
 
@@ -34,9 +34,9 @@ So this's it, ground zero.
 
 ```javascript
 mobileDetector([
-	ComponentDesktop,
-	[ComponentMobilePortrait?, ComponentMobileLandscape?],
-	[ComponentTabletPortrait?, ComponentTabletLandscape?]
+  ComponentDesktop,
+  [ComponentMobilePortrait?, ComponentMobileLandscape?],
+  [ComponentTabletPortrait?, ComponentTabletLandscape?]
 ])
 ```
 
@@ -82,12 +82,12 @@ You can import anything what you need
 ```javascript
 
 import {
-	mobileDetector,
-	isMobile,
-	isTablet,
-	matchMediaQuery,
-	isLandscape,
-	mobileDetect
+  mobileDetector,
+  isMobile,
+  isTablet,
+  matchMediaQuery,
+  isLandscape,
+  mobileDetect
 } from 'react-mobile-app'
 
 ```
@@ -115,13 +115,13 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const Component = connect(
-	mapStateToProps,
+  mapStateToProps,
   mapDispatchToProps,
-	mobileDetector([
-		ComponentDesktop,
-		[ComponentMobilePortrait, ComponentMobileLandscape],
-		[ComponentTabletPortrait, ComponentTabletLandscape]
-	])
+  mobileDetector([
+    ComponentDesktop,
+    [ComponentMobilePortrait, ComponentMobileLandscape],
+    [ComponentTabletPortrait, ComponentTabletLandscape]
+  ])
 )
 ```
 
@@ -141,15 +141,15 @@ const mobileContext = () => require.context('../../src', true, /\.mobile\.story\
 const tabletContext = () => require.context('../../src', true, /\.tablet\.story\.js$/)
 
 const calculateContext = () => {
-	if (isMobile()) {
-		return mobileContext()
-	}
+  if (isMobile()) {
+    return mobileContext()
+  }
 
-	if (isTablet()) {
-		tabletContext()
-	}
+  if (isTablet()) {
+    tabletContext()
+  }
 
-	return desktopContext()
+  return desktopContext()
 }
 
 const ctx = calculateContext()
