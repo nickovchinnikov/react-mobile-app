@@ -8,7 +8,8 @@
   ],
   "scripts": {
     "build": "webpack --config ./internals/webpack.config.js --progress --mode production",
-    "test": "npx jest -u"
+    "test": "npx jest -u",
+    "prepublishOnly": "npm test && npx eslint 'src/**/*.js' && npx flow check"
   },
   "repository": {
     "type": "git",
@@ -65,10 +66,6 @@
     "*.js": [
       "npx eslint",
       "npx flow focus-check",
-      "git add"
-    ],
-    "*.ts": [
-      "npx tslint -c tslint.json",
       "git add"
     ],
     "*.{json}": [
