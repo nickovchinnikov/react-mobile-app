@@ -5,12 +5,17 @@ const nodeExternals = require('webpack-node-externals')
 const dist = 'lib'
 const distRegexp = new RegExp(`/${dist}/`)
 
+const libraryName = 'react-mobile-app'
+
 const webpackConfig = {
   target: 'node',
   externals: [nodeExternals()],
   output: {
     path: __dirname + `/../${dist}`,
-    filename: 'index.js'
+    filename: 'index.js',
+    library: libraryName,
+    libraryTarget: 'umd',
+    umdNamedDefine: true
   },
   module: {
     rules: [
