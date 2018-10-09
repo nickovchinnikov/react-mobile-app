@@ -1,4 +1,19 @@
+//@flow
+
+import type { reactComponentType, reactComponentsArrayType } from './types'
+
 import { hocWrapper } from './hocWrapper'
+
+export const calculateComponentByOrientation = (
+  portrait: reactComponentType,
+  landscape: reactComponentType
+): reactComponentType => {
+  if (!landscape) {
+    return portrait
+  }
+
+  return hocWrapper([portrait, landscape])
+}
 
 export const calculateMobileComponentByOrientation = (
   desktop: reactComponentType,
@@ -8,11 +23,7 @@ export const calculateMobileComponentByOrientation = (
     return desktop
   }
 
-  if (!landscape) {
-    return portrait
-  }
-
-  return hocWrapper([portrait, landscape])
+  return calculateComponentByOrientation(portrait, landscape)
 }
 
 export const calculateTabletComponentByOrientation = (
@@ -24,9 +35,5 @@ export const calculateTabletComponentByOrientation = (
     return calculateMobileComponentByOrientation(desktop, [mobilePortrait, mobileLandscape])
   }
 
-  if (!tabletLandscape) {
-    return tabletPortrait
-  }
-
-  return hocWrapper([tabletPortrait, tabletLandscape])
+  return calculateComponentByOrientation(tabletPortrait, tabletLandscape)
 }

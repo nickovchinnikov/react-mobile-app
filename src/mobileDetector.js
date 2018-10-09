@@ -1,6 +1,7 @@
 //@flow
 
 import {
+  calculateComponentByOrientation,
   calculateMobileComponentByOrientation,
   calculateTabletComponentByOrientation
 } from './calculateComponentByOrientation'
@@ -8,6 +9,8 @@ import {
 import type { keyValueType, reactComponentType, reactComponentsArrayType } from './types'
 
 import { isMobile, isTablet } from './helpers'
+
+export const orientationDetector = calculateComponentByOrientation
 
 export const mobileDetector = (
   desktop: reactComponentType,
