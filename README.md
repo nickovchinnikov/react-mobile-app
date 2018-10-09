@@ -1,9 +1,9 @@
 # react-mobile-app
 
 
-## Tool can help you create clear mobile architecture in React.js
+## Tool which help you to create clear mobile architecture in React.js
 
-If you are building big web application with different components for desktop / mobile + tablet (landscape and portrait) after some time, you faced with lots of problems.
+If you are building big web application with different components for desktop / mobile + tablet (landscape and portrait), after some time you'll face with lots of problems.
 
 ## Install
 
@@ -11,11 +11,11 @@ If you are building big web application with different components for desktop / 
 npm i react-mobile-app -S
 ```
 
-#### First - it will too many code in one place
+#### First, it will be too much code in one place
 
-#### Second when user will change device orientation, and your application should handle it, completely rebuild frontend, how can you manage it?
+#### Secondly, how can you manage it, when user will change device orientation and your application should handle it completely rebuilding frontend?
 
-For clear components based architecture I proposed using approach like this
+For clear components-based architecture I propose to use the following approach
 
 ```javascript
 import { mobileDetector } from 'react-mobile-app'
@@ -49,7 +49,7 @@ mobileDetector(
 
 `mobileDetector` has only required param `mobileDetector(ComponentDesktop)` for the desktop view
 
-If you skipped any other parameters it would work by this way
+If you skip any other parameters it will work in the following way
 
 1. `mobileDetector(ComponentDesktop, [ComponentMobilePortrait])` 
 ComponentDesktop for all mobile devices representation, ignore orientation and device type (mobile / tablet)
@@ -58,14 +58,14 @@ ComponentDesktop for all mobile devices representation, ignore orientation and d
 Both presentations (landscape / portrait) but ignoring device type (mobile / tablet)
 
 3. `mobileDetector(ComponentDesktop, [ComponentMobilePortrait, ComponentMobileLandscape], [ComponentTabletPortrait])`
-For mobile presented two different orientaion (landscape / portrait) but for the tablet it'll one view
+For mobile presented two different orientaion (landscape / portrait) but for the tablet it'll be one view
 
 4. `mobileDetector(ComponentDesktop, [ComponentMobilePortrait, ComponentMobileLandscape], [ComponentTabletPortrait])`
-Full version - mobile / tablet presented in two orientaion (landscape / portrait)
+Full version - mobile / tablet presented in two orientaions (landscape / portrait)
 
-### If you wanna to low - lvl API
+### If you want to use low-lvl API
 
-You can find next helpfull methods inside
+You can find the next helpfull methods under the hood
 
 Library based on the [mobile-detect](https://github.com/hgoebl/mobile-detect.js) so everything you can find inside `mobileDetect` instance
 
@@ -169,6 +169,6 @@ configure(loadStories, module)
 
 ```
 
-Than you can easy add to your filesystem mobile and tablet specific stories
+Then you can easily add specific stories to your filesystem mobile and tablet 
 
 > May the force be with you!
