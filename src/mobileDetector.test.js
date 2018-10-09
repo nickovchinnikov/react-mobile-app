@@ -8,7 +8,7 @@ describe('mobileDetector testing', () => {
 
     const desktopComponentMockFunction = jest.fn(() => 0)
 
-    const desktopComponentInstance = mobileDetector([desktopComponentMockFunction])
+    const desktopComponentInstance = mobileDetector(desktopComponentMockFunction)
 
     desktopComponentInstance()
 
@@ -21,7 +21,7 @@ describe('mobileDetector testing', () => {
 
     const desktopComponentMockFunction = jest.fn(() => 0)
 
-    const desktopComponentInstance = mobileDetector([desktopComponentMockFunction])
+    const desktopComponentInstance = mobileDetector(desktopComponentMockFunction)
 
     desktopComponentInstance()
 
@@ -34,7 +34,7 @@ describe('mobileDetector testing', () => {
 
     const desktopComponentMockFunction = jest.fn(() => 0)
 
-    const desktopComponentInstance = mobileDetector([desktopComponentMockFunction])
+    const desktopComponentInstance = mobileDetector(desktopComponentMockFunction)
 
     desktopComponentInstance()
 
@@ -49,9 +49,9 @@ describe('mobileDetector testing', () => {
     const mobilePortraitComponentMockFunction = jest.fn(() => 1)
     const mobileLandscapeComponentMockFunction = jest.fn(() => 2)
 
-    const desktopComponentInstance = mobileDetector([
-      desktopComponentMockFunction,
-      [mobilePortraitComponentMockFunction, mobileLandscapeComponentMockFunction]
+    const desktopComponentInstance = mobileDetector(desktopComponentMockFunction, [
+      mobilePortraitComponentMockFunction,
+      mobileLandscapeComponentMockFunction
     ])
 
     desktopComponentInstance()
@@ -70,9 +70,9 @@ describe('mobileDetector testing', () => {
     const mobilePortraitComponentMockFunction = jest.fn(() => 1)
     const mobileLandscapeComponentMockFunction = jest.fn(() => 2)
 
-    mobileDetector([
-      desktopComponentMockFunction,
-      [mobilePortraitComponentMockFunction, mobileLandscapeComponentMockFunction]
+    mobileDetector(desktopComponentMockFunction, [
+      mobilePortraitComponentMockFunction,
+      mobileLandscapeComponentMockFunction
     ])
 
     expect(calculateMobileComponentByOrientation.mock.results[0].value).toBe(3)
@@ -93,11 +93,11 @@ describe('mobileDetector testing', () => {
     const tabletPortraitComponentMockFunction = jest.fn(() => 3)
     const tabletLandscapeComponentMockFunction = jest.fn(() => 4)
 
-    mobileDetector([
+    mobileDetector(
       desktopComponentMockFunction,
       [mobilePortraitComponentMockFunction, mobileLandscapeComponentMockFunction],
       [tabletPortraitComponentMockFunction, tabletLandscapeComponentMockFunction]
-    ])
+    )
 
     expect(calculateTabletComponentByOrientation.mock.results[0].value).toBe(5)
   })

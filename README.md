@@ -21,11 +21,11 @@ import { ComponentMobileLandscape } from './ComponentMobile.landscape'
 import { ComponentTabletPortrait } from './ComponentTablet.portrait'
 import { ComponentTabletLandscape } from './ComponentTablet.landscape'
 
-export const Component = mobileDetector([
+export const Component = mobileDetector(
   ComponentDesktop,
   [ComponentMobilePortrait, ComponentMobileLandscape],
   [ComponentTabletPortrait, ComponentTabletLandscape]
-])
+)
 ```
 
 So this's it, ground zero.
@@ -33,27 +33,27 @@ So this's it, ground zero.
 ## How I can use it, extended version
 
 ```javascript
-mobileDetector([
+mobileDetector(
   ComponentDesktop,
   [ComponentMobilePortrait?, ComponentMobileLandscape?],
   [ComponentTabletPortrait?, ComponentTabletLandscape?]
-])
+)
 ```
 
-`mobileDetector` has only one required param `mobileDetector([ComponentDesktop])` for the desktop view
+`mobileDetector` has only one required param `mobileDetector(ComponentDesktop)` for the desktop view
 
 If you skiped any other parameter it will be work by this way
 
-1. `mobileDetector([ComponentDesktop, [ComponentMobilePortrait]])` 
+1. `mobileDetector(ComponentDesktop, [ComponentMobilePortrait])` 
 ComponentDesktop for all mobile devices representation, ignore orientation and device type (mobile / tablet)
 
-2. `mobileDetector([ComponentDesktop, [ComponentMobilePortrait, ComponentMobileLandscape]])`
+2. `mobileDetector(ComponentDesktop, [ComponentMobilePortrait, ComponentMobileLandscape])`
 Both presentations (landscape / portrait) but ignoring device type (mobile / tablet)
 
-3. `mobileDetector([ComponentDesktop, [ComponentMobilePortrait, ComponentMobileLandscape], [ComponentTabletPortrait]])`
+3. `mobileDetector(ComponentDesktop, [ComponentMobilePortrait, ComponentMobileLandscape], [ComponentTabletPortrait])`
 For mobile presented two different orientaion (landscape / portrait) but for the tablet it'll be only one view
 
-4. `mobileDetector([ComponentDesktop, [ComponentMobilePortrait, ComponentMobileLandscape], [ComponentTabletPortrait]])`
+4. `mobileDetector(ComponentDesktop, [ComponentMobilePortrait, ComponentMobileLandscape], [ComponentTabletPortrait])`
 Full version - mobile / tablet presented two different orientaion (landscape / portrait)
 
 ### If you wanna to low - lvl API
@@ -117,11 +117,11 @@ const mapDispatchToProps = dispatch => ({
 const Component = connect(
   mapStateToProps,
   mapDispatchToProps,
-  mobileDetector([
+  mobileDetector(
     ComponentDesktop,
     [ComponentMobilePortrait, ComponentMobileLandscape],
     [ComponentTabletPortrait, ComponentTabletLandscape]
-  ])
+  )
 )
 ```
 

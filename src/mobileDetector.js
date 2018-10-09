@@ -8,17 +8,11 @@ import {
   calculateTabletComponentByOrientation
 } from './helpers'
 
-type mobileDetectoraArgsType = {
-  desktop?: reactComponentType,
-  mobile?: reactComponentType,
-  tablet?: reactComponentType
-}
-
-export const mobileDetector = ([
+export const mobileDetector = (
   desktop: reactComponentType,
   [portrait, landscape]: reactComponentsArrayType = [],
   [tablePortrait, tableLandscape]: reactComponentsArrayType = []
-]: mobileDetectoraArgsType): reactComponentType => {
+): reactComponentType => {
   if (isMobile()) {
     return calculateMobileComponentByOrientation(desktop, [portrait, landscape])
   }
