@@ -1,21 +1,12 @@
 import { shallow } from 'enzyme'
 
-import { hocWrapper, calculateMobileComponentByOrientation, calculateTabletComponentByOrientation } from './helpers'
+import {
+  calculateMobileComponentByOrientation,
+  calculateTabletComponentByOrientation
+} from './calculateComponentByOrientation'
 import { MobileDetectorHOC } from './MobileDetectorHOC'
 
-describe('Helpers testing', () => {
-  it('hocWrapper works', () => {
-    const mockMobilePortraitComponent = jest.fn(() => 1)
-    const mockMobileLandscapeComponent = jest.fn(() => 2)
-    const HocWrapperInstance = hocWrapper([mockMobilePortraitComponent, mockMobileLandscapeComponent])
-
-    expect(HocWrapperInstance).toBeInstanceOf(Function)
-
-    const wrapper = shallow(HocWrapperInstance())
-
-    expect(wrapper.instance()).toBeInstanceOf(MobileDetectorHOC)
-  })
-
+describe('calculateComponentByOrientation testing', () => {
   it('calculateMobileComponentByOrientation only desktop', () => {
     const mockDesktopComponent = jest.fn(() => 0)
 

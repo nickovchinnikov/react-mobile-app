@@ -1,12 +1,13 @@
 //@flow
 
-import type { keyValueType, reactComponentType, reactComponentsArrayType } from './types'
 import {
-  isMobile,
-  isTablet,
   calculateMobileComponentByOrientation,
   calculateTabletComponentByOrientation
-} from './helpers'
+} from './calculateComponentByOrientation'
+
+import type { keyValueType, reactComponentType, reactComponentsArrayType } from './types'
+
+import { isMobile, isTablet } from './helpers'
 
 export const mobileDetector = (
   desktop: reactComponentType,

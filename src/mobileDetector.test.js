@@ -1,4 +1,5 @@
 import * as dependency from './helpers'
+import * as calculateComponentDependency from './calculateComponentByOrientation'
 import { mobileDetector } from './mobileDetector'
 
 describe('mobileDetector testing', () => {
@@ -64,7 +65,7 @@ describe('mobileDetector testing', () => {
     dependency.isTablet = () => false
 
     const calculateMobileComponentByOrientation = jest.fn(() => 3)
-    dependency.calculateMobileComponentByOrientation = calculateMobileComponentByOrientation
+    calculateComponentDependency.calculateMobileComponentByOrientation = calculateMobileComponentByOrientation
 
     const desktopComponentMockFunction = jest.fn(() => 0)
     const mobilePortraitComponentMockFunction = jest.fn(() => 1)
@@ -83,7 +84,7 @@ describe('mobileDetector testing', () => {
     dependency.isTablet = () => true
 
     const calculateTabletComponentByOrientation = jest.fn(() => 5)
-    dependency.calculateTabletComponentByOrientation = calculateTabletComponentByOrientation
+    calculateComponentDependency.calculateTabletComponentByOrientation = calculateTabletComponentByOrientation
 
     const desktopComponentMockFunction = jest.fn(() => 0)
 

@@ -25,13 +25,13 @@ describe('MobileDetectorHOC testing', () => {
     expect(wrapper.type()()).toBe(2)
   })
 
-  it('orientation state works as well', () => {
+  it('isLandscape state works as well', () => {
     dependency.isLandscape = jest.fn(() => false)
     const wrapper = shallow(testRender())
 
     expect(wrapper.type()()).toBe(1)
 
-    wrapper.setState({ orientation: true })
+    wrapper.setState({ isLandscape: true })
 
     expect(wrapper.type()()).toBe(2)
   })

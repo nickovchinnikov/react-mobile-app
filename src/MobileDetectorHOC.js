@@ -11,7 +11,7 @@ type mobileDetectorHOCPropsType = {
 }
 
 type mobileDetectorHOCStateType = {
-  orientation: boolean
+  isLandscape: boolean
 }
 
 export class MobileDetectorHOC extends Component<mobileDetectorHOCPropsType, mobileDetectorHOCStateType> {
@@ -21,7 +21,7 @@ export class MobileDetectorHOC extends Component<mobileDetectorHOCPropsType, mob
   constructor(props: mobileDetectorHOCPropsType) {
     super(props)
     this.state = {
-      orientation: isLandscape()
+      isLandscape: isLandscape()
     }
 
     this.orientationWatcher = matchMediaQuery()
@@ -30,7 +30,7 @@ export class MobileDetectorHOC extends Component<mobileDetectorHOCPropsType, mob
   orientationChangedHandler = () => {
     !this.isCancelled &&
       this.setState({
-        orientation: isLandscape()
+        isLandscape: isLandscape()
       })
   }
 
@@ -44,9 +44,9 @@ export class MobileDetectorHOC extends Component<mobileDetectorHOCPropsType, mob
   }
 
   getComponentByDevice([portrait, landscape]: reactComponentType): reactComponentType {
-    const { orientation } = this.state
+    const { isLandscape } = this.state
 
-    return orientation ? landscape : portrait
+    return isLandscape ? landscape : portrait
   }
 
   render() {
