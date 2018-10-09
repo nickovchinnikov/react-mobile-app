@@ -1,7 +1,7 @@
 # react-mobile-app
 
 
-## Tool which help you to create clear mobile architecture in React.js
+## Tool which helps you to create clear mobile architecture in React.js
 
 If you are building big web application with different components for desktop / mobile + tablet (landscape and portrait), after some time you'll face with lots of problems.
 
