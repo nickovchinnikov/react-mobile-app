@@ -1,12 +1,15 @@
 # react-mobile-app
 
-```
-npm i react-mobile-app -S
-```
 
 ## Tool can help you create clear mobile architecture in React.js
 
 If you are build really big web application with different components for desktop / mobile + tablet (landscape and portrait) after some time, you face with lot of problems.
+
+## Install
+
+```
+npm i react-mobile-app -S
+```
 
 #### First - it will be too many code in one place
 
