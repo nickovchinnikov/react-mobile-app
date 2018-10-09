@@ -49,7 +49,7 @@ mobileDetector(
 
 `mobileDetector` has only one required param `mobileDetector(ComponentDesktop)` for the desktop view
 
-If you skiped any other parameter it will be work by this way
+If you skip any other parameter it will work by this way
 
 1. `mobileDetector(ComponentDesktop, [ComponentMobilePortrait])` 
 ComponentDesktop for all mobile devices representation, ignore orientation and device type (mobile / tablet)
