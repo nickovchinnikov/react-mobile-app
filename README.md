@@ -4,9 +4,9 @@
 
 If you are build really big web application with different components for desktop / mobile + tablet (landscape and portrait) after some time, you face with lot of problems.
 
-### First - it will be too many code in one place
+#### First - it will be too many code in one place
 
-### Second when user will change device orientation, and your application should handle it, completely rebuilding frontend, how can you manage it?
+#### Second when user will change device orientation, and your application should handle it, completely rebuilding frontend, how can you manage it?
 
 For clear component based architecture I proposed use approach like this
 
