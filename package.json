@@ -1,6 +1,6 @@
 {
   "name": "react-mobile-app",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Tool which help to create clear mobile architecture in react.js",
   "main": "lib/index.js",
   "files": [
