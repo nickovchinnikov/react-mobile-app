@@ -9,7 +9,7 @@
   "scripts": {
     "build": "webpack --config ./internals/webpack.config.js --progress --mode production",
     "test": "npx jest -u",
-    "prepublishOnly": "npm test && npx eslint 'src/**/*.js' && npx flow check"
+    "prepublishOnly": "npm test && npx eslint 'src/**/*.js' && npx flow check && npm run build"
   },
   "repository": {
     "type": "git",
