@@ -1,7 +1,7 @@
 //@flow
 
 import {
-  calculateComponentByOrientation,
+  orientationDetector,
   calculateMobileComponentByOrientation,
   calculateTabletComponentByOrientation
 } from './calculateComponentByOrientation'
@@ -9,8 +9,6 @@ import {
 import type { keyValueType, reactComponentType, reactComponentsArrayType } from './types'
 
 import { isMobile, isTablet } from './helpers'
-
-export const orientationDetector = calculateComponentByOrientation
 
 export const mobileDetector = (
   desktop: reactComponentType,
@@ -26,6 +24,30 @@ export const mobileDetector = (
   }
 
   return desktop
+}
+
+export const onlyDesktop = desktop => {
+  if (!isMobile() && !isTablet()) {
+    return desktop
+  }
+
+  return () => {}
+}
+
+export const onlyMobile = (portrait, landscape) => {
+  if (isMobile()) {
+    return orientationDetector(portrait, landscape)
+  }
+
+  return () => {}
+}
+
+export const onlyTablet = (portrait, landscape) => {
+  if (isTablet()) {
+    return orientationDetector(portrait, landscape)
+  }
+
+  return () => {}
 }
 
 export const deviceType: keyValueType = {

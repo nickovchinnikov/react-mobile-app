@@ -1,6 +1,5 @@
 # react-mobile-app
 
-
 ## Tool which helps you to create clear mobile architecture in React.js
 
 If you are building big web application with different components for desktop / mobile + tablet (landscape and portrait), after some time you'll face with lots of problems.
@@ -40,6 +39,8 @@ So this's it, ground zero.
 ## How I can use it, extended version
 
 ```javascript
+import { mobileDetector } from 'react-mobile-app'
+
 mobileDetector(
   ComponentDesktop,
   [ComponentMobilePortrait?, ComponentMobileLandscape?],
@@ -63,6 +64,31 @@ For mobile presented two different orientaion (landscape / portrait) but for the
 4. `mobileDetector(ComponentDesktop, [ComponentMobilePortrait, ComponentMobileLandscape], [ComponentTabletPortrait])`
 Full version - mobile / tablet presented in two orientaions (landscape / portrait)
 
+### orientationDetector (dynamic rebuild component by the orientation change)
+
+You can easy detect orientation changes using `orientationDetector`
+
+```javascript
+import { orientationDetector } from 'react-mobile-app'
+
+orientationDetector(portrait, landscape)
+```
+
+### Show component only for specific device
+
+If you have this component only for desktop presentation, it can easy by the `onlyDesktop`.
+In any other case it will be `() => {}`
+
+`landscape` is non-required param
+
+```javascript
+import { onlyDesktop, onlyMobile, onlyTablet } from 'react-mobile-app'
+
+const desktopComponent = onlyDesktop(desktop)
+const mobileComponent = onlyMobile(portrait, landscape)
+const tabletComponent = onlyTablet(portrait, landscape)
+```
+
 ### If you want to use low-lvl API
 
 You can find the next helpfull methods under the hood
@@ -81,7 +107,6 @@ const matchMediaQuery = (): MediaQueryList => window.matchMedia('(orientation: l
 const isLandscape = (): boolean => matchMediaQuery().matches
 
 const mobileDetect: MobileDetect = new MobileDetect(navigator.userAgent)
-
 ```
 
 You can import anything what you need

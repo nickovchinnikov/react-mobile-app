@@ -4,7 +4,7 @@ import type { reactComponentType, reactComponentsArrayType } from './types'
 
 import { hocWrapper } from './hocWrapper'
 
-export const calculateComponentByOrientation = (
+export const orientationDetector = (
   portrait: reactComponentType,
   landscape: reactComponentType
 ): reactComponentType => {
@@ -23,7 +23,7 @@ export const calculateMobileComponentByOrientation = (
     return desktop
   }
 
-  return calculateComponentByOrientation(portrait, landscape)
+  return orientationDetector(portrait, landscape)
 }
 
 export const calculateTabletComponentByOrientation = (
@@ -35,5 +35,5 @@ export const calculateTabletComponentByOrientation = (
     return calculateMobileComponentByOrientation(desktop, [mobilePortrait, mobileLandscape])
   }
 
-  return calculateComponentByOrientation(tabletPortrait, tabletLandscape)
+  return orientationDetector(tabletPortrait, tabletLandscape)
 }
