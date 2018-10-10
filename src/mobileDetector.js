@@ -28,11 +28,11 @@ export const mobileDetector = (
 
 const reactDumpFunctionalComponent = () => null
 
-export const onlyDesktop = (desktop: reactComponentType): reactComponentType =>
+export const onlyForDesktop = (desktop: reactComponentType): reactComponentType =>
   !isMobile() && !isTablet() ? desktop : reactDumpFunctionalComponent
 
-export const onlyMobile = (portrait: reactComponentType, landscape: reactComponentType): reactComponentType =>
+export const onlyForMobile = (portrait: reactComponentType, landscape: reactComponentType): reactComponentType =>
   isMobile() ? orientationDetector(portrait, landscape) : reactDumpFunctionalComponent
 
-export const onlyTablet = (portrait: reactComponentType, landscape: reactComponentType): reactComponentType =>
+export const onlyForTablet = (portrait: reactComponentType, landscape: reactComponentType): reactComponentType =>
   isTablet() ? orientationDetector(portrait, landscape) : reactDumpFunctionalComponent

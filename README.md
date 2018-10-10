@@ -76,17 +76,18 @@ orientationDetector(portrait, landscape)
 
 ### Show component only for specific device
 
-If you have this component only for desktop presentation, it can easy by the `onlyDesktop`.
-In any other case it will be `() => {}`
+If you have this component only for desktop presentation, it can easy by the `onlyDesktop`
+
+In any other case it will be `() => null`
 
 `landscape` is non-required param
 
 ```javascript
-import { onlyDesktop, onlyMobile, onlyTablet } from 'react-mobile-app'
+import { onlyForDesktop, onlyForMobile, onlyForTablet } from 'react-mobile-app'
 
-const desktopComponent = onlyDesktop(desktop)
-const mobileComponent = onlyMobile(portrait, landscape)
-const tabletComponent = onlyTablet(portrait, landscape)
+const desktopComponent = onlyForDesktop(desktop)
+const mobileComponent = onlyForMobile(portrait, landscape)
+const tabletComponent = onlyForTablet(portrait, landscape)
 ```
 
 ### If you want to use low-lvl API
