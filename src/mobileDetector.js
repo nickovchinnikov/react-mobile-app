@@ -6,7 +6,7 @@ import {
   calculateTabletComponentByOrientation
 } from './calculateComponentByOrientation'
 
-import type { keyValueType, reactComponentType, reactComponentsArrayType } from './types'
+import type { reactComponentType, reactComponentsArrayType } from './types'
 
 import { isMobile, isTablet } from './helpers'
 
@@ -26,37 +26,13 @@ export const mobileDetector = (
   return desktop
 }
 
-export const onlyDesktop = desktop => {
-  if (!isMobile() && !isTablet()) {
-    return desktop
-  }
+const reactDumpFunctionalComponent = () => null
 
-  return () => {}
-}
+export const onlyDesktop = (desktop: reactComponentType): reactComponentType =>
+  !isMobile() && !isTablet() ? desktop : reactDumpFunctionalComponent
 
-export const onlyMobile = (portrait, landscape) => {
-  if (isMobile()) {
-    return orientationDetector(portrait, landscape)
-  }
+export const onlyMobile = (portrait: reactComponentType, landscape: reactComponentType): reactComponentType =>
+  isMobile() ? orientationDetector(portrait, landscape) : reactDumpFunctionalComponent
 
-  return () => {}
-}
-
-export const onlyTablet = (portrait, landscape) => {
-  if (isTablet()) {
-    return orientationDetector(portrait, landscape)
-  }
-
-  return () => {}
-}
-
-export const deviceType: keyValueType = {
-  desktop: 'desktop',
-  mobile: 'mobile',
-  tablet: 'tablet'
-}
-
-export const screenOrientation: keyValueType = {
-  portrait: 'portrait',
-  landscape: 'landscape'
-}
+export const onlyTablet = (portrait: reactComponentType, landscape: reactComponentType): reactComponentType =>
+  isTablet() ? orientationDetector(portrait, landscape) : reactDumpFunctionalComponent
