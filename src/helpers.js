@@ -1,12 +1,29 @@
 // @flow
 
-import MobileDetect from 'mobile-detect'
+const deviceHasTouchEvent = () => {
+  try {
+    document.createEvent('TouchEvent')
+    return true
+  } catch (e) {
+    return false
+  }
+}
 
-export const mobileDetect: MobileDetect = new MobileDetect(navigator.userAgent)
+const isMobileUserAgents = () => {
+  const regexp = new RegExp(
+    '/Mobi|Mobile|Android|iPhone|iPod|IEMobile|Windows Phone|BlackBerry|webOS|Tablet|iPad|Nexus 7|Nexus 10|KFAPWI/',
+    'i'
+  )
+  return regexp.test(navigator.userAgent)
+}
 
-export const isMobile = (): boolean => Boolean(mobileDetect.mobile())
+const mobileCheck = () => deviceHasTouchEvent() && isMobileUserAgents()
 
-export const isTablet = (): boolean => Boolean(mobileDetect.tablet())
+const isTabletDevice = () => window.innerHeight / window.innerWidth <= 1.6
+
+export const isMobile = (): boolean => mobileCheck() && !isTabletDevice()
+
+export const isTablet = (): boolean => mobileCheck() && isTabletDevice()
 
 export const matchMediaQuery = (): MediaQueryList => window.matchMedia('(orientation: landscape)')
 

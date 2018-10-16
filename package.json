@@ -9,7 +9,9 @@
   "scripts": {
     "build": "webpack --config ./internals/webpack.config.js --progress --mode production",
     "test": "npx jest -u",
-    "prepublishOnly": "npm test && npx eslint 'src/**/*.js' && npx flow check && npm run build"
+    "prepublishOnly": "npm test && npx eslint 'src/**/*.js' && npx flow check && npm run build",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -27,7 +29,6 @@
   },
   "homepage": "https://github.com/master-7/react-mobile-app#readme",
   "dependencies": {
-    "mobile-detect": "^1.4.3",
     "react": "^16.5.2"
   },
   "devDependencies": {
@@ -60,9 +61,14 @@
     "lint-staged": "^7.3.0",
     "prettier": "^1.14.3",
     "react-dom": "^16.5.2",
+    "storybook": "^1.0.0",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2",
-    "webpack-node-externals": "^1.7.2"
+    "webpack-node-externals": "^1.7.2",
+    "@storybook/react": "^4.0.0-alpha.25",
+    "@storybook/addon-actions": "^4.0.0-alpha.25",
+    "@storybook/addon-links": "^4.0.0-alpha.25",
+    "@storybook/addons": "^4.0.0-alpha.25"
   },
   "lint-staged": {
     "*.js": [
