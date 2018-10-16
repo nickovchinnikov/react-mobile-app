@@ -94,10 +94,7 @@ const tabletComponent = onlyForTablet(portrait, landscape)
 
 You can find the next helpfull methods under the hood
 
-Library based on the [mobile-detect](https://github.com/hgoebl/mobile-detect.js) so everything you can find inside `mobileDetect` instance
-
 ```javascript
-import MobileDetect from 'mobile-detect'
 
 const isMobile = (): boolean => Boolean
 
