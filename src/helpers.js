@@ -17,14 +17,18 @@ const isMobileUserAgents = () => {
   return regexp.test(navigator.userAgent)
 }
 
+export const matchMediaQuery = (): MediaQueryList => window.matchMedia('(orientation: landscape)')
+
+export const isLandscape = (): boolean => matchMediaQuery().matches
+
 const mobileCheck = () => deviceHasTouchEvent() && isMobileUserAgents()
 
-const isTabletDevice = () => window.innerHeight / window.innerWidth <= 1.6
+const isTabletDevice = () => {
+  const { innerWidth, innerHeight } = window
+  const proportion = isLandscape() ? innerWidth / innerHeight : innerHeight / innerWidth
+  return proportion <= 1.6
+}
 
 export const isMobile = (): boolean => mobileCheck() && !isTabletDevice()
 
 export const isTablet = (): boolean => mobileCheck() && isTabletDevice()
-
-export const matchMediaQuery = (): MediaQueryList => window.matchMedia('(orientation: landscape)')
-
-export const isLandscape = (): boolean => matchMediaQuery().matches
