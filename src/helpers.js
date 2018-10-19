@@ -24,9 +24,10 @@ export const isLandscape = (): boolean => matchMediaQuery().matches
 const mobileCheck = () => deviceHasTouchEvent() && isMobileUserAgents()
 
 const isTabletDevice = () => {
-  const { innerWidth, innerHeight } = window
-  const proportion = isLandscape() ? innerWidth / innerHeight : innerHeight / innerWidth
-  return proportion <= 1.6
+  const {
+    screen: { height, width }
+  } = window
+  return height / width <= 1.6
 }
 
 export const isMobile = (): boolean => mobileCheck() && !isTabletDevice()
