@@ -27,7 +27,8 @@ const isTabletDevice = () => {
   const {
     screen: { height, width }
   } = window
-  return height / width <= 1.6
+  const proportion = height > width ? height / width : width / height
+  return proportion <= 1.6
 }
 
 export const isMobile = (): boolean => mobileCheck() && !isTabletDevice()
