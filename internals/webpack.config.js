@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const nodeExternals = require('webpack-node-externals')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const dist = 'lib'
 const distRegexp = new RegExp(`/${dist}/`)
@@ -35,7 +36,7 @@ const webpackConfig = {
   optimization: {
     minimize: true
   },
-  plugins: [new webpack.HashedModuleIdsPlugin()]
+  plugins: [new webpack.HashedModuleIdsPlugin(), new CopyWebpackPlugin([{ from: './*.d.ts', to: './' }])]
 }
 
 module.exports = webpackConfig
